@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:yes_no_maybe_23/domain/entities/message.dart';
 
@@ -29,7 +27,8 @@ class HerMessageBubble extends StatelessWidget {
             height: 150,
             constraints: BoxConstraints(
                 maxWidth: screenSize.width * 0.65, maxHeight: 150),
-            child: _ImageBubble()),
+            child:(msg.imageUrl != null)? _ImageBubble(imgUrl: msg.imageUrl!):null
+        ),
         const SizedBox(
           height: 10,
         ),
@@ -39,14 +38,15 @@ class HerMessageBubble extends StatelessWidget {
 }
 
 class _ImageBubble extends StatelessWidget {
-  
+  final String imgUrl;
+
+  const _ImageBubble({super.key,required this.imgUrl});
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: Image.network(
-        fit: BoxFit.contain,
-        'https://yesno.wtf/assets/maybe/3-3b062a434fc4a0c283dec220a6a16a9d.gif',
+        imgUrl,
         loadingBuilder: (context, child, loadingProgress) {
           if (loadingProgress == null) return child;
           return const Align(
