@@ -21,7 +21,7 @@ class ChatProvider extends ChangeNotifier {
             .me); // el fromWho simepre sera me porque siempre sera yo quien este escribiendo
     messages.add(newTempMsg);
 
-    if (text.endsWith('?')) await herReply();
+    if (text.endsWith('?'))  herReply();
 
     notifyListeners(); // se renderiza la pantalla con nuevo msg
     moveScrollToBottom(); // hacemos scroll hasta abajo
@@ -31,7 +31,7 @@ class ChatProvider extends ChangeNotifier {
     final herMessage = await getYesNoAnswer.getAnswer();
     messages.add(herMessage);
     notifyListeners(); // se renderiza la pantalla con nuevo msg
-    moveScrollToBottom();
+    moveScrollToBottom(); //
     print(herMessage);
   }
 

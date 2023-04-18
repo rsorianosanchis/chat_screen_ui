@@ -17,7 +17,7 @@ class HerMessageBubble extends StatelessWidget {
             constraints: BoxConstraints(maxWidth: screenSize.width * 0.65),
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             decoration: BoxDecoration(
-                color: themeColors.secondaryContainer,
+                color: themeColors.tertiaryContainer,
                 borderRadius: BorderRadius.circular(20)),
             child: Text(msg.text)),
         const SizedBox(
@@ -27,7 +27,9 @@ class HerMessageBubble extends StatelessWidget {
             height: 150,
             constraints: BoxConstraints(
                 maxWidth: screenSize.width * 0.65, maxHeight: 150),
-            child:(msg.imageUrl != null)? _ImageBubble(imgUrl: msg.imageUrl!):null
+            child:(msg.imageUrl != null)
+              ? _ImageBubble(imgUrl: msg.imageUrl!)
+              :null
         ),
         const SizedBox(
           height: 10,
