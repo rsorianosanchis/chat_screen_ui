@@ -11,9 +11,11 @@ class GetYesNoAnswer {
     // Aqui usariamos el modelo intermedio antes de cargar datos en la entidad Message
     final tempInstance = YesNoMaybeModel.fromJsonMap(response.data);
 
-    return Message(
-        text: tempInstance.answer,
-        fromWho: FromWho.hers,
-        imageUrl: tempInstance.image);
+    // return Message(
+    //     text: tempInstance.answer,
+    //     fromWho: FromWho.hers,
+    //     imageUrl: tempInstance.image);
+
+    return tempInstance.toMessageEntity();
   }
 }

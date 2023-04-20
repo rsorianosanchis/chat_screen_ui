@@ -11,8 +11,8 @@
 
 //   factory YesNoMaybeModel.fromJsonMap(Map<String, dynamic> json) {
 //     return YesNoMaybeModel(
-//       answer: json['answer'], 
-//       forced: json['forced'], 
+//       answer: json['answer'],
+//       forced: json['forced'],
 //       urlImage: json['image']);
 //   }
 // }
@@ -20,29 +20,38 @@
 //
 //     final yesNoModel = yesNoModelFromJson(jsonString);
 
+// Aqui cremos instancia con todos los datos del response y los cargamos en una nueva instancia. Asi accederemos a las propiedades åpr instancia.propiedad para igualarla al entity en las propiedades que nois interese.
 
 //String yesNoModelToJson(YesNoModel data) => json.encode(data.toJson());
 
+import 'package:yes_no_maybe_23/domain/entities/message.dart';
+
 class YesNoMaybeModel {
-    YesNoMaybeModel({
-        required this.answer,
-        required this.forced,
-        required this.image,
-    });
+  YesNoMaybeModel({
+    required this.answer,
+    required this.forced,
+    required this.image,
+  });
 
-    final String answer;
-    final bool forced;
-    final String image;
+  final String answer;
+  final bool forced;
+  final String image;
 
-    factory YesNoMaybeModel.fromJsonMap(Map<String, dynamic> json) => YesNoMaybeModel(
+  factory YesNoMaybeModel.fromJsonMap(Map<String, dynamic> json) =>
+      YesNoMaybeModel(
         answer: json["answer"],
         forced: json["forced"],
         image: json["image"],
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "answer": answer,
         "forced": forced,
         "image": image,
-    };
+      };
+
+  Message toMessageEntity() => Message(
+    text: (answer=='yes')?'afirmativo':'negativo', 
+    fromWho: FromWho.hers,
+    imageUrl: image);
 }
