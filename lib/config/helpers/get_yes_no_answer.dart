@@ -8,7 +8,7 @@ class GetYesNoAnswer {
   Future<Message> getAnswer() async {
     final response = await _dio.get('https://yesno.wtf/api');
 
-    // Aqui usariamos el modelo intermedio antes de cargar datos en la entidad Message
+    // Aqui usamos el modelo intermedio antes de cargar datos en la entidad Message
     final tempInstance = YesNoMaybeModel.fromJsonMap(response.data);
 
     // return Message(

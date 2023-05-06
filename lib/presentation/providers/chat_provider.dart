@@ -9,8 +9,7 @@ class ChatProvider extends ChangeNotifier {
       GetYesNoAnswer(); // aqui creamos instancia de la clase que tinene el metodo para hacer la peticon http
 
   List<Message> messages = [
-    Message(text: 'Hola amor', fromWho: FromWho.me),
-    Message(text: 'Är du hemma?', fromWho: FromWho.me),
+    
   ];
 
   Future<void> sendMessage(String text) async {

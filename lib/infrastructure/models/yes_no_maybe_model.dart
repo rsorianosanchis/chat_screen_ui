@@ -1,26 +1,4 @@
-// En infrastuctura tenemos los elementos que nos sirven de puente entre las Entitys propias de nuesta logica de negocio/aplicaion y la representacion en pantalla.  Aqui es donde por ejemplo trataremos la data de fuera y la procesaremos a nuestro gusto.
-
-// Aqui cremos instancia con todos los datos del response y los cargamos en una nueva instancia. Asi accederemos a las propiedades åpr instancia.propiedad para igualarla al entity en las propiedades que nois interese.
-// class YesNoMaybeModel {
-//   String answer;
-//   bool forced;
-//   String urlImage;
-
-//   YesNoMaybeModel(
-//       {required this.answer, required this.forced, required this.urlImage});
-
-//   factory YesNoMaybeModel.fromJsonMap(Map<String, dynamic> json) {
-//     return YesNoMaybeModel(
-//       answer: json['answer'],
-//       forced: json['forced'],
-//       urlImage: json['image']);
-//   }
-// }
-// To parse this JSON data, do
-//
-//     final yesNoModel = yesNoModelFromJson(jsonString);
-
-// Aqui cremos instancia con todos los datos del response y los cargamos en una nueva instancia. Asi accederemos a las propiedades åpr instancia.propiedad para igualarla al entity en las propiedades que nois interese.
+// This model takes all response data and map it in the instance, after we will take from the model the necessary data for entities.
 
 //String yesNoModelToJson(YesNoModel data) => json.encode(data.toJson());
 
@@ -50,8 +28,9 @@ class YesNoMaybeModel {
         "image": image,
       };
 
+  // YesNoMaybeModel has next method to cretate a new Message instance that is really that we use in app program.
   Message toMessageEntity() => Message(
-    text: (answer=='yes')?'afirmativo':'negativo', 
+    text: (answer=='yes')?'Si':'No', 
     fromWho: FromWho.hers,
     imageUrl: image);
 }

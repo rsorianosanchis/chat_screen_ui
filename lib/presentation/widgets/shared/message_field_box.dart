@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 
 class MessageFieldBox extends StatelessWidget {
   final Icon msgEnterIcon;
-  final ValueChanged<String> onValue; // esta propiedad lo que hace es en vez de insertar , es extraer un String hacia el exterior de manera obligatoria 'required' con un afunciom callbak
+  // With onValue's property we can extract the String throw a callbak. This property not inserts data but takes out it.
+  final ValueChanged<String> onValue; 
 
   const MessageFieldBox(
       {Key? key, required this.msgEnterIcon, required this.onValue})
